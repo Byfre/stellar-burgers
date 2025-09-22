@@ -50,6 +50,13 @@ const ordersSlice = createSlice({
       state.total = action.payload.total;
       state.totalToday = action.payload.totalToday;
     });
+    builder.addCase(fetchOrders.rejected, (state) => {
+      state.isOrdersLoading = false;
+
+      state.orders = [];
+      state.total = 0;
+      state.totalToday = 0;
+    });
     //GetOrderByNumber
     builder.addCase(fetchOrderByNumber.pending, (state) => {
       state.isSelectedOrderLoading = true;

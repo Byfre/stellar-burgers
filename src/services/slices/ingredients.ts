@@ -39,6 +39,10 @@ const ingredientSlice = createSlice({
       state.data = action.payload;
       state.isIngredientsLoading = false;
     });
+    builder.addCase(fetchIngredients.rejected, (state, action) => {
+      state.data = [];
+      state.isIngredientsLoading = false;
+    });
   }
 });
 

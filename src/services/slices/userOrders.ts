@@ -20,8 +20,10 @@ export const fetchUserOrders = createAsyncThunk(
     try {
       const response = await getOrdersApi();
       return response;
-    } catch (error: any) {
-      return rejectWithValue(error.message || 'Ошибка загрузки заказов');
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : 'Ошибка загрузки заказов';
+      return rejectWithValue(errorMessage);
     }
   }
 );

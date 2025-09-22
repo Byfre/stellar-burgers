@@ -1,5 +1,15 @@
+import { TOrder } from '@utils-types';
+
+export type TFeedInfo = {
+  total: number;
+  totalToday: number;
+  isLoading?: boolean;
+  error?: string | null;
+  orders?: TOrder[];
+};
+
 export type FeedInfoUIProps = {
-  feed: any;
+  feed: TFeedInfo;
   readyOrders: number[];
   pendingOrders: number[];
 };

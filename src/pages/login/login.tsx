@@ -7,7 +7,7 @@ export const Login: FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
 
   const isLoginRequesting = useSelector(
     (state) => state.user.isLoginRequesting
@@ -18,7 +18,7 @@ export const Login: FC = () => {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     if (!isLoginRequesting) {
-      dispath(loginUser({ email, password }));
+      dispatch(loginUser({ email, password }));
     }
   };
 
