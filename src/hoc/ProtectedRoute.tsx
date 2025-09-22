@@ -1,12 +1,26 @@
 import { Navigate } from 'react-router-dom';
+import { useSelector } from '../services/store';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
-  isAuthenticated: boolean;
+  unAuthOnly?: boolean;
 }
 
 export const ProtectedRoute = ({
   children,
-  isAuthenticated
-}: ProtectedRouteProps) =>
-  isAuthenticated ? <>{children}</> : <Navigate to='/login' replace />;
+  unAuthOnly
+}: ProtectedRouteProps) => {
+  // TODO: Брать из store
+
+  const isAuth = useSelector((state) => state.user.isAuth);
+
+  if (isAuth && unAuthOnly) {
+    return <Navigate to='/' replace />;
+  }
+
+  if (!isAuth && !unAuthOnly) {
+    return <Navigate to='/login' replace />;
+  }
+
+  return children;
+};

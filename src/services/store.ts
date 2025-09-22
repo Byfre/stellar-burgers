@@ -7,18 +7,25 @@ import {
 } from 'react-redux';
 
 import ingredientsSliceReducer from './slices/ingredients';
+import feedSliceReducer from './slices/feed';
+import orderSliceReducer from './slices/order';
+import userSliceReducer from './slices/user';
+import userOrdersSliceReducer from './slices/userOrders';
 
 const rootReducer = () => ({
-  ingredients: ingredientsSliceReducer
+  ingredients: ingredientsSliceReducer,
+  feed: feedSliceReducer,
+  order: orderSliceReducer,
+  user: userSliceReducer,
+  userOrders: userOrdersSliceReducer
 });
-// Заменить на импорт настоящего редьюсера
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: rootReducer(),
   devTools: process.env.NODE_ENV !== 'production'
 });
 
-export type RootState = ReturnType<typeof rootReducer>;
+export type RootState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
 
