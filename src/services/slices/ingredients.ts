@@ -15,12 +15,14 @@ type TIngredientsState = {
   data: TIngredient[];
   isIngredientsLoading: boolean;
   selectedIngredient: TIngredient | null;
+  error: string;
 };
 
 const initialState: TIngredientsState = {
   data: [],
   isIngredientsLoading: false,
-  selectedIngredient: null
+  selectedIngredient: null,
+  error: ''
 };
 
 const ingredientSlice = createSlice({
@@ -29,21 +31,28 @@ const ingredientSlice = createSlice({
   reducers: {
     selectIngredient: (state, action: PayloadAction<TIngredient>) => {
       state.selectedIngredient = action.payload;
+    },
+    clearError: (state) => {
+      state.error = '';
     }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchIngredients.pending, (state) => {
       state.isIngredientsLoading = true;
+      state.error = '';
     });
     builder.addCase(fetchIngredients.fulfilled, (state, action) => {
       state.data = action.payload;
       state.isIngredientsLoading = false;
+      state.error = '';
     });
     builder.addCase(fetchIngredients.rejected, (state, action) => {
       state.data = [];
       state.isIngredientsLoading = false;
+      state.error = action.error.message || 'Не удалось загрузить ингредиенты';
     });
   }
 });
 
+export const { clearError } = ingredientSlice.actions;
 export default ingredientSlice.reducer;
