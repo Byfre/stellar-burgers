@@ -4,7 +4,8 @@ import reducer, {
   removeIngredient,
   moveIngredientUp,
   moveIngredientDown,
-  orderBurger
+  orderBurger,
+  initialState
 } from './order';
 
 // Тестовые данные
@@ -83,16 +84,6 @@ const mockOrder = {
 };
 
 describe('slice burgerConstructor reducer', () => {
-  const initialState = {
-    constructorItems: {
-      bun: null,
-      ingredients: []
-    },
-    isOrderRequesting: false,
-    orderError: '',
-    orderModalData: null
-  };
-
   describe('Обработка добавления ингредиента', () => {
     test('добавляет булку в конструктор', () => {
       const action = addBun(mockBun);

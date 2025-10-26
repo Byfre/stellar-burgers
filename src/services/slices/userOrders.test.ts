@@ -1,4 +1,4 @@
-import reducer, { fetchUserOrders } from './userOrders';
+import reducer, { fetchUserOrders, initialState } from './userOrders';
 
 // Тестовые данные для заказов пользователя
 const mockUserOrders = [
@@ -23,12 +23,6 @@ const mockUserOrders = [
 ];
 
 describe('userOrders reducer async actions', () => {
-  const initialState = {
-    orders: [],
-    isLoading: false,
-    error: ''
-  };
-
   describe('fetchUserOrders', () => {
     test('при pending устанавливает isLoading в true и очищает ошибку', () => {
       const stateWithError = {

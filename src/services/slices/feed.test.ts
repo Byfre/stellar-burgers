@@ -1,4 +1,4 @@
-import reducer, { fetchOrders, fetchOrderByNumber } from './feed';
+import reducer, { fetchOrders, fetchOrderByNumber, initialState } from './feed';
 
 // Тестовые данные для заказов
 const mockOrdersData = {
@@ -41,15 +41,6 @@ const mockOrderByNumber = {
 };
 
 describe('feed reducer async actions', () => {
-  const initialState = {
-    orders: [],
-    total: 0,
-    totalToday: 0,
-    isOrdersLoading: false,
-    selectedOrder: null,
-    isSelectedOrderLoading: false
-  };
-
   describe('fetchOrders', () => {
     test('при pending устанавливает isOrdersLoading в true и очищает orders', () => {
       const stateWithOrders = {

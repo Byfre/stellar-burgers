@@ -3,7 +3,8 @@ import reducer, {
   registerUser,
   loginUser,
   updateUser,
-  logoutUser
+  logoutUser,
+  initialState
 } from './user';
 
 // Тестовые данные
@@ -13,20 +14,6 @@ const mockUser = {
 };
 
 describe('user reducer async actions', () => {
-  const initialState = {
-    user: {
-      email: '',
-      name: ''
-    },
-    isAuth: false,
-    isAuthChecked: false,
-    isRegisterRequesting: false,
-    registerError: '',
-    isLoginRequesting: false,
-    loginError: '',
-    updateError: ''
-  };
-
   describe('getUser', () => {
     test('при fulfilled сохраняет пользователя и устанавливает авторизацию', () => {
       const action = {

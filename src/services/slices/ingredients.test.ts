@@ -1,4 +1,4 @@
-import reducer, { fetchIngredients, clearError } from './ingredients';
+import reducer, { fetchIngredients, initialState } from './ingredients';
 
 // Тестовые данные
 const mockIngredients = [
@@ -33,13 +33,6 @@ const mockIngredients = [
 ];
 
 describe('ingredients reducer async actions', () => {
-  const initialState = {
-    data: [],
-    isIngredientsLoading: false,
-    selectedIngredient: null,
-    error: ''
-  };
-
   test('при pending устанавливает isIngredientsLoading в true', () => {
     const action = { type: fetchIngredients.pending.type };
     const state = reducer(initialState, action);
