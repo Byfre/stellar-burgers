@@ -4,7 +4,7 @@
 
 Проект покрыт юнит-тестами (Jest) и интеграционными тестами (Cypress).
 
-
+<img src="https://github.com/user-attachments/assets/98522c7b-8091-4b4c-9c19-429a2b0788c7" alt="Интерфейс Stellar Burgers" width="600">
 
 ## Технологии
 
