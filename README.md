@@ -62,5 +62,5 @@ npm run cypress:open
 - Протестированы редьюсеры слайса `ingredients`:
   - Обработка экшена `Request` — установка `isLoading` в `true`
   - Обработка экшена `Success` — запись данных в стор и установка `isLoading` в `false`
-  - Обработка экшена `Failed` — запись ошибки в стор и установка `isLoading` в `false`
+  - Обработка экшена `Failed` — запись ошибки в стор и установка `isLoading` в `false`.
 
