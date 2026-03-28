@@ -21,7 +21,7 @@ type TOrderState = {
   isSelectedOrderLoading: boolean;
 };
 
-const initialState: TOrderState = {
+export const initialState: TOrderState = {
   orders: [],
   total: 0,
   totalToday: 0,
